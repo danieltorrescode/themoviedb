@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+<div class="row">
+  <div class="col-sm">
+    {% block content %}
+    <div class="container-fluid">
+      <!-- MAIN BLOCK -->
+      <div>{{ key.data }}</div>
+    </div>
+    {% endblock %}
+  </div>
+</div>
