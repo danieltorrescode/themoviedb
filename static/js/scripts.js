@@ -33,4 +33,8 @@ function request(method,resource,data) {
 
 }
 
-// console.log( request('','',''))
+let element = document.getElementById('name');
+element.addEventListener('change', function(){
+  // handle change
+  console.log(this.value);
+});

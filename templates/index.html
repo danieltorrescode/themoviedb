@@ -5,7 +5,55 @@
     {% block content %}
     <div class="container-fluid">
       <!-- MAIN BLOCK -->
-      <div>{{ key.data }}</div>
+      <div class="row">
+        <div class="col-sm-4" style="align-content: center;">
+          <label for="name">Nome</label>
+           <input type="text" value="" id="name" >
+        </div>
+        <div class="col-sm-4" style="align-content: center;">
+          <label for="first_air_date">ano de lançamento</label>
+           <input type="text" value="" id="first_air_date">
+        </div>
+        <div class="col-sm-4" style="align-content: center;">
+          <label for="popularity">popularidade</label>
+           <input type="text" value="" id="popularity">
+        </div>
+      </div>
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">nome</th>
+              <th scope="col">descrição</th>
+              <th scope="col">pôster</th>
+              <th scope="col">popularidade</th>
+              <th scope="col">primeiro episódio</th>
+              <th scope="col">gêneros</th>
+              <th scope="col">avaliações </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in shows.results %}
+              <!-- <p>{{ shows.results }}</p> -->
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.name }}</td>
+                <td>{{ item.overview }}</td>
+                <td><img src="https://image.tmdb.org/t/p/w500/{{ item.poster_path }}" alt="N/T" style="width: 70%;"></td>
+                <td>{{ item.popularity }}</td>
+                <td>{{ item.first_air_date }}</td>
+                <td>{{ item.genre_ids }}</td>
+                <td>{{ item.vote_count }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div>{{ shows.page }}</div>
+
+
     </div>
     {% endblock %}
   </div>
