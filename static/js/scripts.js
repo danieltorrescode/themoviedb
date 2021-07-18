@@ -49,7 +49,8 @@ function changeHandler(id){
   }
   let baseUrl = 'http://127.0.0.1:8000';
   let url = `${ baseUrl }/${ resource }/${ element.value }`;
-  window.location.href = url;
+
+  window.location.href = encodeURI(url);
 
   // fetch('http://127.0.0.1:8000/movie/details/'+element.value)
   // .then(response => response.json()

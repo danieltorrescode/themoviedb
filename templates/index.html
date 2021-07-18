@@ -21,7 +21,12 @@
         </div>
         <div class="col-sm-4" style="align-content: center;">
           <label for="popularity">popularidade</label>
-           <input type="text" value="" id="popularity" onchange="changeHandler('popularity')">
+          <select name="popularityFilter" id="popularity" onchange="changeHandler('popularity')">
+            <option value="" selected></option>
+            <option value="popularity.asc"> ASC</option>
+            <option value="popularity.desc"> DESC</option>
+          </select>
+           <!-- <input type="text" value="" id="popularity" onchange="changeHandler('popularity')"> -->
         </div>
       </div>
       <div class="row">

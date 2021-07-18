@@ -42,8 +42,8 @@ def first_air_date_year(request,year=""):
     shows = response.json()
     return render(request, 'index.html', {'shows': shows })
 
-def first_air_date_year(request,year=""):
-    api_url = ' https://api.themoviedb.org/3/discover/tv?api_key=94065978e7ea33fdb51fb1520ae71aae&language=en-US&page=1&include_null_first_air_dates=false&first_air_date_year=' + str(year)
+def popularity(request,popularity=""):
+    api_url = ' https://api.themoviedb.org/3/discover/tv?api_key=94065978e7ea33fdb51fb1520ae71aae&language=en-US&page=1&include_null_first_air_dates=false&sort_by=' + str(popularity)
     response = requests.get(api_url)
     shows = response.json()
     return render(request, 'index.html', {'shows': shows })
