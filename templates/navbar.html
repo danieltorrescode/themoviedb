@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #83d0f2;">
   <div class="linksign">
-    <a class="navbar-brand" href="{% url 'movies:index' %}" style="margin-left: 15%;">
+    <a class="navbar-brand" href="{% url 'shows:index' %}" style="margin-left: 15%;">
       <!-- Home -->
       <!-- <img src="{% static 'img/notes_logo.png' %}" width="30" height="30" alt=""> -->
       <img src="{% static 'img/list-alt.svg' %}" alt="logo" width="30" height="30" >
@@ -10,15 +10,15 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link linksign" href="{% url 'movies:index' %}">Movies</a>
+        <a class="nav-link linksign" href="{% url 'shows:index' %}">Movies</a>
       </li>
 
       {% if user.is_staff %}
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'movies:index' %}">Categories</a>
+          <a class="nav-link" href="{% url 'shows:index' %}">Categories</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'movies:index' %}">Tags</a>
+          <a class="nav-link linksign" href="{% url 'shows:index' %}">Tags</a>
         </li>
       {% else %}
         <li class="nav-item active">
@@ -27,14 +27,14 @@
 
       {% if user.is_authenticated %}
         <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'movies:index' %}">Log Out</a>
+          <a class="nav-link linksign" href="{% url 'shows:index' %}">Log Out</a>
         </li>
       {% else %}
         <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'movies:index' %}">Sign Up</a>
+          <a class="nav-link linksign" href="{% url 'shows:index' %}">Sign Up</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'movies:index' %}">Log In</a>
+          <a class="nav-link linksign" href="{% url 'shows:index' %}">Log In</a>
         </li>
       {% endif %}
     </ul>

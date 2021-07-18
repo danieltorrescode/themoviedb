@@ -33,8 +33,27 @@ function request(method,resource,data) {
 
 }
 
-let element = document.getElementById('name');
-element.addEventListener('change', function(){
-  // handle change
-  console.log(this.value);
-});
+
+function changeHandler(id){
+  let element = document.getElementById(id);
+  // Simulate a mouse click:
+  let resource = '';
+  if(id === 'name'){
+    resource = 'show';
+  }else if (id === 'first_air_date') {
+    resource = 'releases';
+  }else if (id === 'popularity') {
+    resource = 'popularity';
+  } else {
+    resource = '';
+  }
+  let baseUrl = 'http://127.0.0.1:8000';
+  let url = `${ baseUrl }/${ resource }/${ element.value }`;
+  window.location.href = url;
+
+  // fetch('http://127.0.0.1:8000/movie/details/'+element.value)
+  // .then(response => response.json()
+  // )
+  // .then(data => console.log(data));
+
+}
