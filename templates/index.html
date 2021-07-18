@@ -9,6 +9,10 @@
       <div>{{ shows.page }}</div><br>
 
 
+      <div id="csrf_token">
+        {% csrf_token %}
+      </div>
+
       <div class="row">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
@@ -50,6 +54,7 @@
               <th scope="col">primeiro episódio</th>
               <th scope="col">gêneros</th>
               <th scope="col">avaliações </th>
+              <th scope="col">avaliar</th>
             </tr>
           </thead>
           <tbody>
@@ -64,6 +69,12 @@
                 <td>{{ item.first_air_date }}</td>
                 <td>{{ item.genre_ids }}</td>
                 <td>{{ item.vote_count }}</td>
+                <td>
+                  <div class="input-group" style="width: 120px;">
+                    <input type="number" class="form-control" id="rating" name="rating" min="0.5" max="10">
+                    <button type="button" class="btn btn-success btn-sm" onclick="rating('rating','{{ item.id }}')"> Rate </button>
+                  </div>
+                </td>
               </tr>
             {% endfor %}
           </tbody>

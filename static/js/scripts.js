@@ -1,39 +1,3 @@
-//alert("$$$$$$$$$$$$$$$$");
-
-
-function request(method,resource,data) {
-  let url = `${this.url}${resource}`
-
-  let body = {}
-
-  if ( JSON.stringify(data) != '{}' ){
-      body ={
-          body: JSON.stringify(data)
-      }
-  }
-
-  let content = {
-      method: method,
-      headers:{
-          'Content-Type': 'application/json',
-          ...this.fetchHeaders
-      },
-      ...body,
-      ...this.fetchContent
-  }
-
-  return fetch(url,content).then(
-      res => this.checkResponse(res)
-  )
-  .then(resp => resp)
-  .catch(error => {
-      console.error('Error:', error)
-      this.showMessage(error,"error")
-  });
-
-}
-
-
 function changeHandler(id){
   let element = document.getElementById(id);
   // Simulate a mouse click:
@@ -63,4 +27,37 @@ function changePage(page){
     baseUrl = baseUrl[0];
     window.location.href = encodeURI(`${ baseUrl }?page=${ page }`);
   }
+}
+
+function rating(id,tv_id){
+
+  let element = document.getElementById(id);
+  let value = element.value;
+  console.log(value);
+  if(isNaN(value)){
+    alert('rating value is not a valid number')
+    return false
+  }
+  if(value < 0.5 || value > 10){
+    alert('rating value is not a valid number')
+    return false
+  }
+
+  let csrf_token = document.getElementById('csrf_token');
+  csrf_token = csrf_token.lastElementChild.value
+  const data = { 'value' : value, 'tv_id': tv_id };
+
+  fetch('http://127.0.0.1:8000/rating/', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+      "X-CSRFToken": csrf_token
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+
 }
