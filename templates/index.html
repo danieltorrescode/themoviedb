@@ -4,20 +4,30 @@
   <div class="col-sm">
     {% block content %}
     <div class="container-fluid">
+      <div>{{ shows.total_results }}</div><br>
+      <div>{{ shows.total_pages }}</div><br>
+      <div>{{ shows.page }}</div><br>
+
+
+      <div class="row">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" onclick="changePage('{{ shows.page  }}'- 1)">Previous</a></li>
+            <li class="page-item"><a class="page-link" onclick="changePage('1')">First</a></li>
+            <li class="page-item"><a class="page-link" onclick="changePage('{{ shows.total_pages }}')">Last</a></li>
+            <li class="page-item"><a class="page-link" onclick="changePage(Number('{{ shows.page }}') + 1)">Next</a></li>
+          </ul>
+        </nav>
+      </div>
       <!-- MAIN BLOCK -->
       <div class="row">
         <div class="col-sm-4" style="align-content: center;">
           <label for="name">Nome</label>
-            <!-- <select name="nameFilter" id="name">
-              {% for item in shows.results %}
-              <option value="{{ item.id }}">{{ item.name }}</option>
-              {% endfor %}
-            </select> -->
-           <input type="text" value="" id="name" onchange="changeHandler('name')">
+           <input type="text" value="" id="name" onchange="changeHandler('name')" autocomplete="on">
         </div>
         <div class="col-sm-4" style="align-content: center;">
           <label for="first_air_date">ano de lançamento</label>
-           <input type="text" value="" id="first_air_date" onchange="changeHandler('first_air_date')">
+           <input type="text" value="" id="first_air_date" onchange="changeHandler('first_air_date')" autocomplete="on">
         </div>
         <div class="col-sm-4" style="align-content: center;">
           <label for="popularity">popularidade</label>
@@ -26,7 +36,6 @@
             <option value="popularity.asc"> ASC</option>
             <option value="popularity.desc"> DESC</option>
           </select>
-           <!-- <input type="text" value="" id="popularity" onchange="changeHandler('popularity')"> -->
         </div>
       </div>
       <div class="row">
@@ -61,7 +70,7 @@
         </table>
       </div>
 
-      <div>{{ shows.page }}</div>
+
 
 
     </div>

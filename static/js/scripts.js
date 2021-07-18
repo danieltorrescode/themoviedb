@@ -51,10 +51,16 @@ function changeHandler(id){
   let url = `${ baseUrl }/${ resource }/${ element.value }`;
 
   window.location.href = encodeURI(url);
+}
 
-  // fetch('http://127.0.0.1:8000/movie/details/'+element.value)
-  // .then(response => response.json()
-  // )
-  // .then(data => console.log(data));
+function changePage(page){
+  if(page <= 0 ){
+    window.location.href = 'http://127.0.0.1:8000';
+  }else{
 
+    let baseUrl = window.location.href;
+    baseUrl = baseUrl.split('?');
+    baseUrl = baseUrl[0];
+    window.location.href = encodeURI(`${ baseUrl }?page=${ page }`);
+  }
 }
