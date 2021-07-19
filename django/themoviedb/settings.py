@@ -20,10 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rkyd6!*^lth@$lxibra!*ib-c=l(z6@_gh1zyk_-i3)t0*b70f'
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'qazxcv')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
 ALLOWED_HOSTS = []
 
@@ -124,7 +125,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # custom global varibles for the apps
-BASE_URL = 'https://api.themoviedb.org/3'
-API_KEY = '94065978e7ea33fdb51fb1520ae71aae'
-API_USERNAME = 'jabexa4478'
-API_PASSWORD = 'SiHenkPmKtuy2iH'
+BASE_URL =  os.environ.get('BASE_URL', 'https://api.themoviedb.org/3')
+API_KEY =  os.environ.get('API_KEY', '94065978e7ea33fdb51fb1520ae71aae')
+API_USERNAME =  os.environ.get('API_USERNAME', 'jabexa4478')
+API_PASSWORD =  os.environ.get('API_PASSWORD', 'SiHenkPmKtuy2iH')

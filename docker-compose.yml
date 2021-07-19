@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./django:/app
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=rkyd6!*^lth@$lxibra!*ib-c=l(z6@_gh1zyk_-i3)t0*b70f
+      - BASE_URL=https://api.themoviedb.org/3
+      - API_KEY=94065978e7ea33fdb51fb1520ae71aae
+      - API_USERNAME=jabexa4478
+      - API_PASSWORD=SiHenkPmKtuy2iH
