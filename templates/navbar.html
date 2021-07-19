@@ -9,9 +9,6 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link linksign" href="{% url 'shows:index' %}">Movies</a>
-      </li>
 
       {% if user.is_staff %}
         <li class="nav-item active">
@@ -25,18 +22,7 @@
         </li>
       {% endif %}
 
-      {% if user.is_authenticated %}
-        <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'shows:index' %}">Log Out</a>
-        </li>
-      {% else %}
-        <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'shows:index' %}">Sign Up</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link linksign" href="{% url 'shows:index' %}">Log In</a>
-        </li>
-      {% endif %}
+
     </ul>
     <span class="navbar-text" style="color:black;">
       {% block welcome_message %}
