@@ -1,3 +1,8 @@
+// constants
+const BASE_URL =  'http://127.0.0.1:8000'
+
+// function in charge of make the get call to the django
+// that allows the search with filters
 function changeHandler(id){
   let element = document.getElementById(id);
   // Simulate a mouse click:
@@ -11,15 +16,13 @@ function changeHandler(id){
   } else {
     resource = '';
   }
-  let baseUrl = 'http://127.0.0.1:8000';
-  let url = `${ baseUrl }/${ resource }/${ element.value }`;
-
+  let url = `${ BASE_URL }/${ resource }/${ element.value }`;
   window.location.href = encodeURI(url);
 }
 
 function changePage(page){
   if(page <= 0 ){
-    window.location.href = 'http://127.0.0.1:8000';
+    window.location.href = BASE_URL;
   }else{
 
     let baseUrl = window.location.href;
@@ -47,7 +50,7 @@ function rating(id,tv_id){
   csrf_token = csrf_token.lastElementChild.value
   const data = { 'value' : value, 'tv_id': tv_id };
 
-  fetch('http://127.0.0.1:8000/rating/', {
+  fetch(`${ BASE_URL }/rating/ }`, {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',

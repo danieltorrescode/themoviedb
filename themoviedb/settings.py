@@ -122,3 +122,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# custom global varibles for the apps
+BASE_URL = 'https://api.themoviedb.org/3'
+API_KEY = '94065978e7ea33fdb51fb1520ae71aae'
+API_USERNAME = 'jabexa4478'
+API_PASSWORD = 'SiHenkPmKtuy2iH'

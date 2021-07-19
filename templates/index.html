@@ -4,15 +4,8 @@
   <div class="col-sm">
     {% block content %}
     <div class="container-fluid">
-      <div>{{ shows.total_results }}</div><br>
-      <div>{{ shows.total_pages }}</div><br>
-      <div>{{ shows.page }}</div><br>
-
-
-      <div id="csrf_token">
-        {% csrf_token %}
-      </div>
-
+      <div id="csrf_token"> {% csrf_token %} </div>
+      <!-- NAVIGATION -->
       <div class="row">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
@@ -24,6 +17,7 @@
         </nav>
       </div>
       <!-- MAIN BLOCK -->
+      <!-- BOOTSTRAP TABLE -->
       <div class="row">
         <div class="col-sm-4" style="align-content: center;">
           <label for="name">Nome</label>
@@ -80,9 +74,6 @@
           </tbody>
         </table>
       </div>
-
-
-
 
     </div>
     {% endblock %}
