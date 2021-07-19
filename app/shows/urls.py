@@ -18,5 +18,5 @@ urlpatterns = [
     path('popularity/<str:popularity>/', views.popularity, name='popularity'),
 
     # allows to vote for the choosen tv show
-    path('rating/', views.rating_show),
+    path('rating/', views.rating, name='rating'),
 ]

@@ -65,8 +65,8 @@
                 <td>{{ item.vote_count }}</td>
                 <td>
                   <div class="input-group" style="width: 120px;">
-                    <input type="number" class="form-control" id="rating" name="rating" min="0.5" max="10">
-                    <button type="button" class="btn btn-success btn-sm" onclick="rating('rating','{{ item.id }}')"> Rate </button>
+                    <input type="number" class="form-control" name="rating" id="rating{{ item.id }}" min="0.5" max="10">
+                    <button type="button" class="btn btn-success btn-sm" onclick="rating('rating{{ item.id }}','{{ item.id }}')"> Rate </button>
                   </div>
                 </td>
               </tr>

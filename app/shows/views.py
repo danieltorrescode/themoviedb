@@ -72,12 +72,14 @@ def popularity(request,popularity="",page='1'):
     return render(request, 'index.html', {'shows': shows })
 
 # allows to vote for the choosen tv show
-def rating_show(request):
+def rating(request):
     data = json.loads(request.body.decode("utf-8"))
     value = str(data['value'])
     tv_id = str(data['tv_id'])
     session_id = authentication()
-    api_url = f'{ settings.BASE_URL }/tv/{ tv_id }/api_key={ settings.API_KEY }&session_id={ session_id }'
+    api_url = f'{ settings.BASE_URL }/tv/{ tv_id }/rating?api_key={ settings.API_KEY }&session_id={ session_id }'
     payload = {'value': value}
     response = requests.post(api_url, data=payload)
-    return JsonResponse({"rating" : 'response.json()'})
+    response = response.json()
+    # print(response)
+    return JsonResponse(response)

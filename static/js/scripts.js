@@ -20,6 +20,7 @@ function changeHandler(id){
   window.location.href = encodeURI(url);
 }
 
+// function that handle the simple paginator
 function changePage(page){
   if(page <= 0 ){
     window.location.href = BASE_URL;
@@ -36,7 +37,6 @@ function rating(id,tv_id){
 
   let element = document.getElementById(id);
   let value = element.value;
-  console.log(value);
   if(isNaN(value)){
     alert('rating value is not a valid number')
     return false
@@ -50,7 +50,7 @@ function rating(id,tv_id){
   csrf_token = csrf_token.lastElementChild.value
   const data = { 'value' : value, 'tv_id': tv_id };
 
-  fetch(`${ BASE_URL }/rating/ }`, {
+  fetch(`${ BASE_URL }/rating/`, {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -60,7 +60,10 @@ function rating(id,tv_id){
   })
   .then(response => response.json())
   .then(data => {
-    console.log('Success:', data);
+    console.log('success:', data.success);
+    console.log('status_code:', data.status_code);
+    console.log('status_message:', data.status_message);
+    alert(data.status_message)
   })
 
 }
