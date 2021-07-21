@@ -1,6 +1,6 @@
 # Django Web Framework and TheMovieDatabase API
 ## Description
-I accepted the friendly challenge from [B2BLUE](https://www.b2blue.com) to build a micro-project in django framework that integrates the API of [TheMovieDatabase](https://www.themoviedb.org/) , as a demonstration of my skills using the tools of Django, Docker, Git and general knowledge in software development.
+this is a micro-project in django framework that integrates the API of [TheMovieDatabase](https://www.themoviedb.org/) 
 ## Table of Contents (Optional)
 If your README is long, add a table of contents to make it easy for users to find what they need.
 - [Installation](#installation)
